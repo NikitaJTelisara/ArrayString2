@@ -13,6 +13,14 @@ public class arrayString2 {
 
         s1= longestUniqueSubstring(s1);
         System.out.println(s1);
+
+        int[] arr = {2, 2, 3, 3, 4, 6, 6};
+        int result = getSingleNum(arr, 0, arr.length - 1);
+        if (result == 0) {
+            System.out.println("not found");
+        } else {
+            System.out.println(result);
+        }
     }
 
     public static String longestPalindrome(String s) {
@@ -118,5 +126,32 @@ public class arrayString2 {
             }
         }
         return longest;
+    }
+
+    public static int getSingleNum(int[] arr, int l, int h) {
+        int mid = l + (h - l) / 2;
+        if (l == h) {
+            return arr[l];
+        }
+        if ((arr[mid] != arr[mid - 1]) && (arr[mid] != arr[mid + 1])) {
+            return arr[mid];
+        }
+        if (arr[mid] == arr[mid + 1]) {
+            if (mid % 2 == 1) {
+                return (getSingleNum(arr, l, mid - 1));
+            }
+            if (mid % 2 == 0) {
+                return (getSingleNum(arr, mid, h));
+            }
+        }
+        if (arr[mid] == arr[mid - 1]) {
+            if (mid % 2 == 1) {
+                return (getSingleNum(arr, mid + 1, h));
+            }
+            if (mid % 2 == 0) {
+                return (getSingleNum(arr, l, mid));
+            }
+        }
+        return 0;
     }
 }
