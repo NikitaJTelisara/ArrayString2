@@ -21,6 +21,9 @@ public class arrayString2 {
         } else {
             System.out.println(result);
         }
+
+        s = "{{as(s)Ss}}" ;
+        System.out.println(isBalanced(s));
     }
 
     public static String longestPalindrome(String s) {
@@ -153,5 +156,36 @@ public class arrayString2 {
             }
         }
         return 0;
+    }
+
+    public static boolean isBalanced(String s) {
+        Stack stack = new Stack();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
+                stack.push(s.charAt(i));
+            }
+            if (s.charAt(i) == ')' || s.charAt(i) == '}' || s.charAt(i) == ']') {
+                char result = stack.pop().data;
+                if(s.charAt(i) == ')'){
+                    if(result != '('){
+                        return false;
+                    }
+                }
+                if(s.charAt(i) == ']'){
+                    if(result != '['){
+                        return false;
+                    }
+                }
+                if(s.charAt(i) == '}'){
+                    if(result != '{'){
+                        return false;
+                    }
+                }
+            }
+        }
+        if(!stack.isEmpty()){
+            return false;
+        }
+        return true;
     }
 }
