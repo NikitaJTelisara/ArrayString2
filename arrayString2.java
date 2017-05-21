@@ -198,6 +198,38 @@ public class arrayString2 {
         }
         return true;
     }
+    
+    /*
+    public static boolean isBala(String str) {
+        Stack s1 = new Stack();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '{' || str.charAt(i) == '[' || str.charAt(i) == '(') {
+                s1.push(str.charAt(i));
+            }
+            if (str.charAt(i) == '}' || str.charAt(i) == ']' || str.charAt(i) == ')') {
+                if (s1.pop().data != getChar(str.charAt(i))) {
+                    return false;
+                }
+            }
+        }
+        return s1.isEmpty();
+    }
+
+    public static char getChar(char x1) {
+        char x = ' ';
+        switch (x1) {
+            case '}':
+                x = '{';
+                break;
+            case ']':
+                x = '[';
+                break;
+            case ')':
+                x = '(';
+                break;
+        }
+        return x;
+    }*/
 
 
     /* BinaryGap
