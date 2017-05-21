@@ -300,4 +300,24 @@ Find longest sequence of zeros in binary representation of an integer.*/
         return result;
     }
     // 0(n)
+    /* 
+    public static int lengthOfLongestValidParen(String str) {
+        Stack s1 = new Stack();
+        int count = 0;
+        int result = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '{' || str.charAt(i) == '[' || str.charAt(i) == '(') {
+                s1.push(str.charAt(i));
+            }
+            if (str.charAt(i) == '}' || str.charAt(i) == ']' || str.charAt(i) == ')') {
+                if (s1.pop().data == getChar(str.charAt(i))) {
+                   count++;
+                }else {
+                    return -1;
+                }
+            }
+            result = Math.max(result,count);
+        }
+        return result;
+    }*/
 }
