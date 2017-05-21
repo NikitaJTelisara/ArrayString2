@@ -252,6 +252,22 @@ Find longest sequence of zeros in binary representation of an integer.*/
         return result;
     }
     // 0(n)
+    
+    /* public static int getMax(int x) {
+        String str = Integer.toString(x,2);
+        int count = 0;
+        int result = 0;
+        for(int  i=0; i<str.length();i++){
+            if(str.charAt(i) == '0'){
+                 count++;
+            }else {
+                result = Math.max(result,count);
+                count = 0;
+            }
+        }
+        return result;
+    }
+*/
 
     /*
         Find longest valid Parentheses*/
