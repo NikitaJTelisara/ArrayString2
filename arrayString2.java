@@ -47,17 +47,11 @@ public class arrayString2 {
         for (int i = 0; i < s.length(); i++) {
             // get longest palindrome with center of i
             String tmp = helper(s, i, i);    /* for Niki , return iki */
-            if (tmp.length() > longest.length()) {
-                longest = tmp;
-            }
-
+            longest = (tmp.length() > longest.length()?tmp:longest);
             // get longest palindrome with center of i, i+1
             tmp = helper(s, i, i + 1);          /* for Nikki , return ikki */
-            if (tmp.length() > longest.length()) {
-                longest = tmp;
-            }
+            longest = (tmp.length() > longest.length()?tmp:longest);
         }
-
         return longest;
     }
 
