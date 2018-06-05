@@ -120,19 +120,18 @@ public class arrayString2 {
         }
         return longest;
     }
-
+    
+    
     public static String helper3(String s, int i) {
-        String longest = s.substring(i);
         HashSet tab = new HashSet();
         for (int j = i; j <= s.length() - 1; j++) {
             if (!tab.contains(s.charAt(j))) {
                 tab.add(s.charAt(j));
-                longest = s.substring(i, j);
             } else {
-                return longest;
+                return s.substring(i, j);
             }
         }
-        return longest;
+        return s.substring(i, s.length() - 1);
     }
 
     public static int getSingleNum(int[] arr, int l, int h) {
