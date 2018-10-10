@@ -60,7 +60,8 @@ public class arrayString2 {
             begin--;
             end++;
         }
-        return s.substring(begin + 1, end);
+        return s.substring(begin + 1, end);  // because begin got decremented and end got incremented after the last match, 
+                                          // ex "earal" now begin(0) is at e and end(4) at l s.substring(0+1,4) = "ara"
     }
 
 /* Time complexity = O(n^2), space complext  O(1)        */
