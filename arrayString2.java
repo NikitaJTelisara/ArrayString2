@@ -68,6 +68,8 @@ public class arrayString2 {
 
     /* get length on longest subsstring with unique elements
    input : awedds Expected output :4
+   
+      
     */
     public static int lengthOfLongestUniqueSubstring(String s) {
         if (s.isEmpty()) {
@@ -78,8 +80,7 @@ public class arrayString2 {
         }
         int longest = 1;   /* N , subString() does not include chartAt(1)   */
         for (int i = 0; i <= s.length() - 1; i++) {
-            //System.out.println("i"+i);
-            int tempLength = helper1(s, i);
+            int tempLength = helper1(s.substring(i));
             if (tempLength > longest) {
                 longest = tempLength;
             }
@@ -87,20 +88,21 @@ public class arrayString2 {
         return longest;
     }
 
-    public static int helper1(String s, int i) {
-        int longest = 1;
-        HashSet tab = new HashSet();
-        for (int j = i; j <= s.length() - 1; j++) {
-            if (!tab.contains(s.charAt(j))) {
-                tab.add(s.charAt(j));
-                longest = tab.size();
-            } else {
-                return longest;
+    public static int helper1(String s) {
+       /* 
+    1. want unique list   (No hashmap, hashtable,linkedlist,arraylist as they allow duplicate)
+    2. Not sorted , no order of insertion needed  (No treeset, no linedhashset, no linkedhashmap)
+
+    Therefore use hasset
+    */
+        HashSet set = new HashSet();
+        for (int j = 0; j <= s.length() - 1; j++) {
+            if (!set.add(s.charAt(j))) {  // set does not add duplicates and return a false on .add(duplicate value)
+                return s.substring(0, j).length();
             }
         }
-        return longest;
+        return s.length();
     }
-
 
     /* get longest unique subsstring with unique elements
    input : awedds Expected output :awed
