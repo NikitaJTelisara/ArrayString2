@@ -116,25 +116,23 @@ public class arrayString2 {
         }
         String longest = s.substring(0, 1);   /* N , subString() does not include chartAt(1)   */
         for (int i = 0; i <= s.length() - 1; i++) {
-            String temp = helper3(s, i);
+            String temp = helper3(s.substring(i));
             if (temp.length() > longest.length()) {
                 longest = temp;
             }
         }
         return longest;
     }
-    
-    
-    public static String helper3(String s, int i) {
+
+
+    public static String helper3(String s) {
         HashSet tab = new HashSet();
-        for (int j = i; j <= s.length() - 1; j++) {
-            if (!tab.contains(s.charAt(j))) {
-                tab.add(s.charAt(j));
-            } else {
-                return s.substring(i, j);
+        for (int j = 0; j <= s.length() - 1; j++) {
+            if (!tab.add(s.charAt(j))) {  // set does not add duplicates and return a false on .add(duplicate value)
+                return s.substring(0, j);
             }
         }
-        return s.substring(i, s.length() - 1);
+        return s;
     }
 
     public static int getSingleNum(int[] arr, int l, int h) {
