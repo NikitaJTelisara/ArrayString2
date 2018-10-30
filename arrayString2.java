@@ -261,6 +261,19 @@ Find longest sequence of zeros in binary representation of an integer.*/
         }
         return result;
     }
+    
+    //better
+     public static int getMaxBinaryGap(Integer k) {
+        String s = Integer.toString(k, 2);
+        System.out.println(s);
+        int cnt = 0;
+        int max = 0;
+        for (int i = 0; i < s.length(); i++) {
+            cnt = ((s.charAt(i) == '0') ? cnt + 1 : 0);
+            max = Math.max(max, cnt);
+        }
+        return max;
+    }
 */
 
     /*
