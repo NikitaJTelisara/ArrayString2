@@ -315,12 +315,13 @@ Find longest sequence of zeros in binary representation of an integer.*/
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '{' || str.charAt(i) == '[' || str.charAt(i) == '(') {
                 s1.push(str.charAt(i));
+                count =0;
             }
             if (str.charAt(i) == '}' || str.charAt(i) == ']' || str.charAt(i) == ')') {
                 if (s1.pop().data == getChar(str.charAt(i))) {
-                   count++;
+                    count++;
                 }else {
-                    return -1;
+                    count =0;
                 }
             }
             result = Math.max(result,count);
