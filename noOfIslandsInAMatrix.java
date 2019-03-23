@@ -7,10 +7,10 @@ public class noOfIslandsInAMatrix {
                 {'0', '0', '0'},
                 {'1', '1', '1'}};
         System.out.print(numIslands(grid));
-
+         
 
     }
-
+    //dfs
     public static int numIslands(char[][] grid) {
         int count = 0;
         for (int i = 0; i < grid.length; i++) {
